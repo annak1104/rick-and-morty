@@ -1,0 +1,46 @@
+.companyLogo__image {
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    animation: icons-search 1s infinite alternate-reverse;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 27px;
+  margin-bottom: 23px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 29px;
+    width: 18px;
+
+    &:hover {
+      animation: icons-scale 1s infinite;
+    }
+  }
+}
+
+@keyframes icons-search {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes icons-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
