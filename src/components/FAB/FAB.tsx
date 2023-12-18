@@ -6,11 +6,11 @@ import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import { useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks/hooks';
-import { selectCharacters } from '../../app/reducers/charactersSlice';
+import { selectCharacters } from '../../app/charactersSlice';
 import { CSVLink } from 'react-csv';
 // import { HistoryList } from '../HistoryList/HistoryList';
 
-export default function FAB() {
+export const FAB = () => {
   const [isButtonsVisible, setIsButtonsVisible] = useState(false);
   const location = useLocation();
   const characters = useAppSelector(selectCharacters);
@@ -149,4 +149,4 @@ export default function FAB() {
       </Drawer>
     </Fab>
   );
-}
+};
