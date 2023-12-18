@@ -9,7 +9,7 @@ const initialState: CharactersState = {
   characters: [],
 };
 
-const charactersSlice = createSlice({
+const characterSlice = createSlice({
   name: 'characters',
   initialState,
   reducers: {
@@ -19,5 +19,5 @@ const charactersSlice = createSlice({
   },
 });
 
-export const { setCharacters } = charactersSlice.actions;
-export const charactersReducer = charactersSlice.reducer;
+export const { setCharacters } = characterSlice.actions;
+export const charactersReducer = characterSlice.reducer;
