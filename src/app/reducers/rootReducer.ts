@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { charactersReducer } from './characterSlice';
+import { charactersReducer } from './charactersSlice';
 
 const rootReducer = combineReducers({
   characters: charactersReducer,
