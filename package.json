@@ -14,11 +14,17 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.68",
+    "@types/papaparse": "^5.3.14",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
+    "@types/uuid": "^9.0.7",
+    "@uidotdev/usehooks": "^2.4.1",
+    "immer": "^10.0.3",
     "react": "^18.2.0",
     "react-csv": "^2.2.2",
+    "react-csv": "^2.2.2",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.0",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.20.1",
     "react-scripts": "5.0.1",
@@ -53,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-csv": "^1.1.10",
     "@types/react-csv": "^1.1.10",
     "@types/react-redux": "^7.1.32"
   }
