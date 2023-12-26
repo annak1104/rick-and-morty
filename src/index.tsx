@@ -5,7 +5,7 @@ import { Root } from './Root';
 import { ApolloProvider } from '@apollo/client';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './app/store/store';
+import { store } from './app/store/store';
 import client from './client';
 
 const root = ReactDOM.createRoot(

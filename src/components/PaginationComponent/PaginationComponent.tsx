@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/client';
 import { getCharacters } from '../../graphql-query';
-import { setCharacters } from '../../app/reducers/characterSlice';
+import { setCharacters } from '../../app/charactersSlice';
 
 export const PaginationComponent = () => {
   const [searchParams, setSearchParams] = useSearchParams();

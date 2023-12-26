@@ -3,7 +3,7 @@ import { DEFAULT_FORM_VALUES } from '../utils/constants';
 import { Character } from '../types/Character';
 import { Episode } from '../types/Episode';
 import { FormInput } from '../types/FormInput';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getCharacters, getEpisode } from 'rickmortyapi';
 
 export interface CharactersState {
@@ -69,5 +69,51 @@ export const fetchCharacters = createAsyncThunk(
   },
 );
 
+export const charactersSlice = createSlice({
+  name: 'characters',
+  initialState,
+  reducers: {
+    resetFilters: (state) => {
+      state.currentFilters = DEFAULT_FORM_VALUES;
+    },
+    setFilters: (state, action) => {
+      state.currentFilters = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCharacters.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchCharacters.fulfilled, (state, action) => {
+        state.loading = false;
+        state.characters = action.payload.results as any || [];
+        state.pageAmount = action.payload.pages || 0;
+      })
+      .addCase(fetchCharacters.rejected, (state) => {
+        state.loading = false;
+        state.error = 'Something went wrong';
+      });
+  },
+});
+
+
+const characterSlice = createSlice({
+  name: 'characters',
+  initialState,
+  reducers: {
+    setCharacters: (state, action: PayloadAction<Character[]>) => {
+      state.characters = action.payload;
+    },
+  },
+});
+
+export const { setCharacters } = characterSlice.actions;
+export const charactersReducer = characterSlice.reducer;
+
 export const selectCharacters = (state: RootState) =>
   state.characters.characters;
+
+export const { resetFilters, setFilters } = charactersSlice.actions;
+
+export default charactersSlice.reducer;

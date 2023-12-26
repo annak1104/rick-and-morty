@@ -14,16 +14,19 @@ return (
   <Card
   sx={{
     display: 'grid',
-    gridTemplateColumns: '230px 1fr',
-    width: 600,
-    height: 220,
+    gridTemplateColumns: { xs: '1fr', md: '230px 1fr' },
+    width: { xs: 'calc(50% - 20px)', md: 600 },
+    height: 'auto',
     bgcolor: '#3C3E44',
     color: '#F5F5F5',
-    transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+    transition: 'box-shadow 0.3s ease',
     ':hover': {
-      boxShadow: '0px 0px 10px 0px #000000',
-      transform: 'scale(1.005)',
+      boxShadow: '3px 3px 10px 3px #000000',
       transition: 'transform 0.3s ease',
+    },
+    '@media (max-width: 1279px)': {
+      width: '100%',
+      gridTemplateColumns: '1fr',
     },
   }}
 >
@@ -101,7 +104,7 @@ return (
           First seen in:
         </Typography>
 
-        <Typography variant='body1'>{character.episode[0].name}</Typography>
+        <Typography variant='body1'>{character.firstSeen}</Typography>
       </Box>
     </Box>
   </CardContent>

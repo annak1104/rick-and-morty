@@ -8,7 +8,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks/hooks';
 import { selectCharacters } from '../../app/charactersSlice';
 import { CSVLink } from 'react-csv';
-// import { HistoryList } from '../HistoryList/HistoryList';
+import { HistoryList } from '../HistoryList/HistoryList';
 
 export const FAB = () => {
   const [isButtonsVisible, setIsButtonsVisible] = useState(false);
@@ -119,6 +119,10 @@ export const FAB = () => {
             height: '100%',
             width: '420px',
             boxSizing: 'border-box',
+            '@media (max-width: 600px)': {
+              width: '280px',
+            },
+
           }}
         >
           <Box>
@@ -131,7 +135,7 @@ export const FAB = () => {
             >
               History
             </Typography>
-            {/* <HistoryList /> */}
+            <HistoryList />
           </Box>
           <Button
             onClick={toggleDrawer(false)}
