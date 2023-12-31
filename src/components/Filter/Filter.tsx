@@ -180,7 +180,7 @@ export const Filter = () => {
             height: '100%',
             top: 0,
             left: 0,
-            zIndex: 1300,
+            zIndex: 1299,
           }}
         />
       )}
@@ -201,7 +201,7 @@ export const Filter = () => {
               autoWidth
               sx={{
                 bgcolor: '#F5F5F5',
-                zIndex: 1300,
+                zIndex: 1299,
               }}
             >
               <MenuItem
@@ -216,13 +216,7 @@ export const Filter = () => {
                 Select Item
               </MenuItem>
 
-              <FormGroup
-                sx={{
-                  // backgroundColor: 'red',
-                  '@media (max-width: 1279px)': {
-                  },
-                }}
-              >
+              <FormGroup>
                 {Object.keys(FILTER_TEXT_FIELDS).map((key) => (
                   <FormControlLabel
                     key={key}
@@ -256,7 +250,7 @@ export const Filter = () => {
               height: '100%',
               bgcolor: '#F5F5F5',
               borderRadius: 1,
-              zIndex: 1301,
+              zIndex: 1299,
               minWidth: '100%',
               [theme.breakpoints.up('md')]: {
                 minWidth: '260px',
@@ -320,7 +314,7 @@ export const Filter = () => {
               bgcolor: '#F5F5F5',
               textTransform: 'uppercase',
               height: '57px',
-              zIndex: 1301,
+              zIndex: 1299,
               width: '100%',
               minWidth: '213px',
               ':hover': {
