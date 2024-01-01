@@ -3,12 +3,36 @@ import React from 'react';
 import { Character } from '../../types/Character';
 import { Link } from 'react-router-dom';
 import { Status } from '../Status/Status';
+import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
+import { HistoryElementType } from '../../types/History';
+import { update } from '../../utils/historySlice';
 
 type Props = {
   character: Character;
 };
 
+
+
 export const CharacterCard: React.FC<Props> = ({ character }) => {
+  const dispatch = useAppDispatch();
+  const { history } = useAppSelector((state) => state.history);
+
+  
+  const handleLinkClick = () => {
+    if (
+      history.length === 0 ||
+      history[0].type !== HistoryElementType.VISIT ||
+      history[0].content !== character.name
+    ) {
+      dispatch(
+        update({
+          type: HistoryElementType.VISIT,
+          content: character.name,
+          id: Date.now(),
+        }),
+      );
+    }
+  };
 
 return (
   <Card
@@ -32,6 +56,7 @@ return (
 >
   <Link
     to={`./${character.id}`}
+    onClick={handleLinkClick}
   >
     <CardMedia
       component='img'
@@ -68,6 +93,7 @@ return (
         >
           <Link
              to={`./${character.id}`}
+             onClick={handleLinkClick}
             style={{
               textDecoration: 'none',
               color: 'inherit',
