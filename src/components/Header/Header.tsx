@@ -40,7 +40,7 @@ export const Header = () => {
           }}
         >
           <a href="/">
-            <img src='./logo.svg' alt='logo' />
+            <img src={process.env.PUBLIC_URL + '/assets/logo.svg'} alt='logo' />
           </a>
         </IconButton>
       </Toolbar>
