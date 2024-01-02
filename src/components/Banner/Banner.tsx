@@ -13,7 +13,7 @@ export const Banner = () => {
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundImage: 'url(./background.png)',
+        backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background.png)`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',

@@ -1,7 +1,7 @@
 {
   "name": "rick-and-morty",
   "version": "0.1.0",
-  "homepage": "https://github.com/annak1104/rick-and-morty",
+  "homepage": "https://annak1104.github.io/rick-and-morty/",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.8.8",
@@ -62,6 +62,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-csv": "^1.1.10",
     "@types/react-redux": "^7.1.32",
     "gh-pages": "^6.1.1"

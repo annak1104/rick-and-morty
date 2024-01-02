@@ -2,7 +2,6 @@ import { Box, Typography, Link } from '@mui/material';
 import styles from './Footer.module.scss';
 
 const footerColor = '#202329';
-const companyLogoPath = './companyLogo.png';
 
 export const Footer = () => {
   return (
@@ -51,7 +50,7 @@ export const Footer = () => {
           target='_blank'
         >
           <img
-            src={companyLogoPath}
+            src={process.env.PUBLIC_URL + '/assets/companyLogo.png'}
             alt='Company Logo'
             className={styles.companyLogo__image}
           />
@@ -68,25 +67,25 @@ export const Footer = () => {
         <Link
           href="https://github.com/annak1104/fe_the_rick_and_morty"
           className={styles.links__item}
-          target='_blank'
+          target="_blank"
         >
-          <img src='./icons/githab.png' alt='GitHub' />
+          <img src={process.env.PUBLIC_URL + '/assets/icons/githab.png'} alt="GitHub" />
         </Link>
 
         <Link
           href="https://twitter.com/rickandmortyapi"
-          className={styles.links__item} 
-          target='_blank'
+          className={styles.links__item}
+          target="_blank"
         >
-          <img src='./icons/twitter.png' alt='Twitter' />
+          <img src={process.env.PUBLIC_URL + '/assets/icons/twitter.png'} alt="Twitter" />
         </Link>
 
         <Link
           href="https://rickandmortyapi.com/support-us/"
           className={styles.links__item}
-          target='_blank'
+          target="_blank"
         >
-          <img src='./icons/support.png' alt='Support us' />
+          <img src={process.env.PUBLIC_URL + '/assets/icons/support.png'} alt="Support us" />
         </Link>
       </Box>
 
