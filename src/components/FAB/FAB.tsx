@@ -154,3 +154,5 @@ export const FAB = () => {
     </Fab>
   );
 };
+
+export default FAB;

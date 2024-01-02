@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
 import {
   fetchCharacters,
@@ -31,9 +31,6 @@ export const CardsList = () => {
       mb: 1,'@media (max-width: 569px)': {
           gridTemplateColumns: '1fr',
         },
-      '@media (max-width: 569px)': {
-        gridTemplateColumns: '1fr',
-      },
     }}
       >
      {characters.map((character) => (

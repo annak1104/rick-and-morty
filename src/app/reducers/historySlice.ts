@@ -1,6 +1,6 @@
 import { HistoryElement, HistoryElementType } from '../../types/History';
 import { createSlice } from '@reduxjs/toolkit';
-import { setFilters } from '../reducers/charactersSlice';
+import { setFilters } from '../charactersSlice';
 
 export interface HistoryState {
   history: HistoryElement[];

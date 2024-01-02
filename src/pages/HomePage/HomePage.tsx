@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { CardsList } from '../../components/CardsList/CardsList';
-// import { Filter } from '../../components/Filter/Filter';
+import { Filter } from '../../components/Filter/Filter';
 import { PaginationComponent } from '../../components/PaginationComponent/PaginationComponent';
 import FAB from '../../components/FAB/FAB';
 
@@ -14,7 +14,7 @@ export const HomePage = () => {
         alignItems: 'center',
       }}
     >
-      {/* <Filter /> */}
+      <Filter />
       <CardsList />
       <FAB />
       <PaginationComponent />
