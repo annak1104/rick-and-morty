@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
 import {
   fetchCharacters,
@@ -7,7 +7,6 @@ import {
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
-
 export const CardsList = () => {
   const { currentFilters } = useAppSelector((state) => state.characters);
   const characters = useAppSelector(selectCharacters);
@@ -29,15 +28,14 @@ export const CardsList = () => {
       gap: '28px',
       pl: '20px',
       pr: '20px',
-      mb: 1,
-      '@media (max-width: 569px)': {
-        gridTemplateColumns: '1fr',
-      },
+      mb: 1,'@media (max-width: 569px)': {
+          gridTemplateColumns: '1fr',
+        },
     }}
       >
      {characters.map((character) => (
-      <CharacterCard character={character} key={character.id} />
-    ))}
-      </Box>
+        <CharacterCard character={character} key={character.id} />
+      ))}
+    </Box>
   );
 };
