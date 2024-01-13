@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Skeleton, Typography } from '@mui/material';
 import { Status } from '../../components/Status/Status';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { PageNotFound } from '../PageNotFound/PageNotFound';
 export const CharacterPage = () => {
   const params = useParams();
   const characterId = +(useParams().characterId as string);
-  const { data, error } = useQuery(getCharacter(characterId));
+  const { data, error, loading } = useQuery(getCharacter(characterId));
   const character = data?.character || null;
   const [noSuchCharacter, setNoSuchCharacter] = useState(false);
 
@@ -35,7 +35,27 @@ export const CharacterPage = () => {
         bgcolor: '#272B33',
       }}
     >
-      {noSuchCharacter ? (
+      {loading ? (
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          <Skeleton
+            variant="rectangular"
+            animation="wave"
+            sx={{
+              bgcolor: 'grey.800',
+              width: { xs: '100%', md: '80%' },
+              height: { xs: '600px', md: '600px' },
+            }}
+          />
+        </Box>
+      ) : noSuchCharacter ? (
         <PageNotFound />
       ) : (
         <Card
@@ -51,10 +71,10 @@ export const CharacterPage = () => {
         >
           {character && character.image && (
             <CardMedia
-              component='img'
+              component="img"
               image={`${character.image}`}
               alt={`Image of ${character.name}`}
-              width='100%'
+              width="100%"
               height={572}
             />
           )}
@@ -71,7 +91,7 @@ export const CharacterPage = () => {
               {character && (
                 <Box>
                   <Typography
-                    component='div'
+                    component="div"
                     sx={{
                       fontWeight: 800,
                       fontSize: 27,
@@ -89,25 +109,25 @@ export const CharacterPage = () => {
               {character && character.location && (
                 <Box>
                   <Typography
-                    variant='body2'
-                    color='#9E9E9E'
+                    variant="body2"
+                    color="#9E9E9E"
                     sx={{
                       fontWeight: 500,
-                      mt: '20px'
+                      mt: '20px',
                     }}
                   >
                     Last known location:
                   </Typography>
 
-                  <Typography variant='body1'>{character.location.name}</Typography>
+                  <Typography variant="body1">{character.location.name}</Typography>
                 </Box>
               )}
 
               {character && character.episode && character.episode[0] && (
                 <Box>
                   <Typography
-                    variant='body2'
-                    color='#9E9E9E'
+                    variant="body2"
+                    color="#9E9E9E"
                     sx={{
                       fontWeight: 500,
                       mt: '20px',
@@ -116,7 +136,7 @@ export const CharacterPage = () => {
                     First seen in:
                   </Typography>
 
-                  <Typography variant='body1'>{character.episode[0].name}</Typography>
+                  <Typography variant="body1">{character.episode[0].name}</Typography>
                 </Box>
               )}
             </Box>
@@ -124,8 +144,8 @@ export const CharacterPage = () => {
             {character && (
               <Box>
                 <Typography
-                  variant='body2'
-                  color='#9E9E9E'
+                  variant="body2"
+                  color="#9E9E9E"
                   sx={{
                     fontWeight: 500,
                     mt: '20px',
@@ -134,13 +154,13 @@ export const CharacterPage = () => {
                   Other Info
                 </Typography>
 
-                <Typography variant='body1'>
+                <Typography variant="body1">
                   The Mosaic Rooms are a leading non-profit arts organisation and bookshop dedicated
                   to supporting and promoting contemporary culture from the Arab world and beyond in
                   London. Established in 2009, as a project of the A.M. Qattan Foundation, it
                   dedicates its work to championing creative and critical voices that are often
                   underrepresented.
-                  </Typography>
+                </Typography>
               </Box>
             )}
           </CardContent>
