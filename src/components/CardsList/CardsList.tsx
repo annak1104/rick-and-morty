@@ -1,12 +1,14 @@
-import { Box } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import { CharacterCard } from '../CharacterCard/CharacterCard';
 import {
   fetchCharacters,
   selectCharacters,
 } from '../../app/charactersSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import { getCharacter } from '../../graphql-query';
 export const CardsList = () => {
   const { currentFilters } = useAppSelector((state) => state.characters);
   const characters = useAppSelector(selectCharacters);
